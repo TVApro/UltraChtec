@@ -68,26 +68,43 @@ def nucleotides_counter(seq):
 def N50_L50(fasta_sorted_list):
         full_sequence = full_fasta_sequence(fasta_sorted_list)
         N50 = 0
+        N90 = 0
         L50 = 0
+        L90 = 0
+        summ = 0
         half_seq = len(full_sequence)/2
-        medium = 0
+        more_seq = (len(full_sequence)/100)*90
         try:
                 for i in fasta_sorted_list:
-                        medium += len(fasta_sorted_list[i])
+                        summ += len(fasta_sorted_list[i])
                         L50 += 1
-                        if medium >= half_seq:
+                        if summ >= half_seq:
                                 N50 = len(fasta_sorted_list[i])
+                                summ = 0
+                                break
+                for i in fasta_sorted_list:
+                        summ += len(fasta_sorted_list[i])
+                        L90 += 1
+                        if summ >= more_seq:
+                                N90 = len(fasta_sorted_list[i])
                                 break
         # это покажется бессмысленным, но у списка контигов, получаемого дальше, нет имён,
         # поэтому первый алгоритм не может с ними работать, и требуется тот, что ниже
         except: 
                 for i in fasta_sorted_list:
-                        medium += len(i)
+                        summ += len(i)
                         L50 += 1
-                        if medium >= half_seq:
+                        if summ >= half_seq:
                                 N50 = len(i)
+                                summ = 0
                                 break
-        N50L50 = [N50, L50]
+                for i in fasta_sorted_list:
+                        summ += len(i)
+                        L90 += 1
+                        if summ >= more_seq:
+                                N90 = len(i)
+                                break
+        N50L50 = [N50, L50, N90, L90]
         return N50L50
 
 def scaffold_devider(fasta_sorted_list):
@@ -137,13 +154,18 @@ def fasta_resolve(fasta_sorted_list):
         N50_L50_scaffold = N50_L50(fasta_sorted_list)
         N50_scaffold = N50_L50_scaffold[0]
         L50_scaffold = N50_L50_scaffold[1]
+        N90_scaffold = N50_L50_scaffold[2]
+        L90_scaffold = N50_L50_scaffold[3]
         # Получение значений N50/L50 контигов
         N50_L50_contig = N50_L50(contig_list)
         N50_contig = N50_L50_contig[0]
         L50_contig = N50_L50_contig[1]
+        N90_contig = N50_L50_contig[2]
+        L90_contig = N50_L50_contig[3]
         # Вывод
-        assembly_properties = ("\nПоказатели сборки:\n количество скаффолдов - {scaffold_number} шт.\n максимальная длина скаффолда {max_scaffold_len} bp \n N50 скаффолдов {N50_scaffold} bp \n L50 скаффолдов {L50_scaffold} шт.\n количество контигов - {contig_number} шт.\n максимальная длина контига {max_contig_len} bp \n N50 контигов {N50_contig} bp \n L50 контигов {L50_contig} шт.\n".format(scaffold_number=scaffold_number, \
+        assembly_properties = ("\nПоказатели сборки:\n количество скаффолдов - {scaffold_number} шт.\n максимальная длина скаффолда {max_scaffold_len} bp \n N50 скаффолдов {N50_scaffold} bp \n L50 скаффолдов {L50_scaffold} шт.\n N90 скаффолдов {N90_scaffold} bp\n L90 скаффолдов {L90_scaffold} шт.\n количество контигов - {contig_number} шт.\n максимальная длина контига {max_contig_len} bp\n N50 контигов {N50_contig} bp\n L50 контигов {L50_contig} шт.\n N90 контигов {N90_contig} bp \n L90 контигов {L90_contig} шт.\n".format(scaffold_number=scaffold_number, \
                                 max_scaffold_len=max_scaffold_len, N50_scaffold=N50_scaffold, L50_scaffold=L50_scaffold, \
                                 contig_number=contig_number, max_contig_len=max_contig_len, N50_contig=N50_contig, \
-                                L50_contig=L50_contig))
+                                L50_contig=L50_contig, N90_scaffold=N90_scaffold, L90_scaffold=L90_scaffold,\
+                                N90_contig=N90_contig, L90_contig=L90_contig))
         return assembly_properties
