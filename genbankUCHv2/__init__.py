@@ -1,6 +1,6 @@
 # всё для работы с последовательностями genbank
 import re
-import fastaUCHv1 as fa
+import fastaUCHv2 as fa
 
 def gb_obtain(text):
     assembly_info = {}
