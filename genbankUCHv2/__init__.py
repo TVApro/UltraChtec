@@ -1,6 +1,6 @@
 # everything to work with GenBank sequences
 import re
-import fastaUCHv2_eng as fa
+import fastaUCHv2 as fa
 
 def gb_obtain(text):
     assembly_info = {}
