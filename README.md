@@ -3,9 +3,9 @@ February 3, 2023.
 
 This is a simple portable text editor for fast analysis of FASTA and GenBank genomic sequences formates. The program is written entirely in Python 3.10 and can be run from any operating system with Python3 installed. It consists of a main file (`UltraChtecv2.py`) with a size of about 679 lines and two modules:
 
-`fastaUCHv2`/`fastaUCHv2_eng` is a small module for analyzing fasta sequences. The default module size is about 168 lines. 
+`fastaUCHv2` is a small module for analyzing fasta sequences. The default module size is about 168 lines. 
 
-`genbankUCHv2`/`genbankUCHv2_eng` is a module for parsing GenBank files. The module size is about 157 lines. Requires the previous module to work.
+`genbankUCHv2` is a module for parsing GenBank files. The module size is about 157 lines. Requires the previous module to work.
 
 ## USAGE
 To work without installing Python3, there is a beta version for Windows in .exe format, so far only in Russian and with a limited set of functions. Along with the program, in the "samples" folder, there are two test genomic sequences as an example of incoming files. To run, you may need to install additional modules `re` and `tkinter`.
