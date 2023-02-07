@@ -159,12 +159,12 @@ class StartWindow(Frame):
         if messagebox.askyesno(message=message):
             window.destroy()
     def spravka():
-        message = 'Программа UltraЧТЕЦ v.1 - простой текстовый редактор, созданный для быстрого просмотра файлов нуклеотидных и аминокислотных последовательностей, а также для частичного анализа геномных сборок'
+        message = 'Программа UltraЧТЕЦ v.2 - простой текстовый редактор, созданный для быстрого просмотра файлов нуклеотидных и аминокислотных последовательностей, а также для частичного анализа геномных сборок'
         messagebox.showinfo("Справка", message)
     def help():
         path = os.getcwd()
         try:
-            path_file = os.path.join('Manual_ru')
+            path_file = os.path.join('Manual_ru.txt')
             with open(path_file, 'r') as file:
                 text = file.read()
             features_list.delete(1.0, END)
