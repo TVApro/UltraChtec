@@ -12,8 +12,8 @@ from tkinter import messagebox
 from tkinter import filedialog as fd
 from tkinter import font
 
-import fastaUCHv2_eng as fa
-import genbankUCHv2_eng as gb
+import fastaUCHv2 as fa
+import genbankUCHv2 as gb
 
 class StartWindow(Frame):
     def path_input():
