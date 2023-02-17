@@ -58,7 +58,7 @@ This function allows you to find the name of a gene in the annotations by a keyw
 
     input: .gb, .gbk or .gbff
 
-    outputs: FASTA (`get fna` parameter), amino acids FASTA (`get faa`) or report* (`get report`)
+    output: FASTA (`get fna` parameter), amino acids FASTA (`get faa`) or report* (`get report`)
 
 Report includes the main elements of GenBank files: sequence name, contig (scaffold), individual gene number, nucleotide sequence, amino acid translation.
 
