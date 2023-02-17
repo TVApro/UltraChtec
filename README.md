@@ -1,7 +1,7 @@
 # UltraChtec v2.0. Program manual
 February 3, 2023.
 
-This is a simple portable text editor for fast analysis of FASTA and GenBank genomic sequences formates. The program is written entirely in Python 3.10 and can be run from any operating system with Python3 installed. It consists of a main file (`UltraChtecv2.py`) with a size of about 679 lines and two modules:
+This is a simple portable text editor for fast analysis of FASTA and GenBank genomic sequences formates. The program is written entirely in Python 3.10 and can be run from any operating system with Python3 installed. It consists of a main file (`UltraChtecv2.py`) with a size of about 680 lines and two modules:
 
 `fastaUCHv2` is a small module for analyzing fasta sequences. The default module size is about 168 lines. 
 
