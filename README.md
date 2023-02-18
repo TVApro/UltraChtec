@@ -7,7 +7,9 @@ This is a simple portable text editor for fast analysis of FASTA and GenBank gen
 
 `genbankUCHv2` is a module for parsing GenBank files. The module size is about 157 lines. Requires the previous module to work.
 
+
 ## USAGE
+
 To work without installing Python3, there is a beta version for Windows in .exe format, so far only in Russian and with a limited set of functions. Along with the program, in the "samples" folder, there are two test genomic sequences as an example of incoming files. To run, you may need to install additional modules `re` and `tkinter`.
 
 Modules can be installed through the console with the command: 
@@ -26,6 +28,8 @@ or (for example):
 ## FUNCTIONS
 ### 1) Viewing and editing the content of genomic files. 
   To open a file, select the `Open...` item in the Menu and select it in the window that opens, or enter its address in the system manually in the `File path` field. The contents of the file will not appear in the text field until the `Edit – Viewing the content` option is selected. To save changes to a file, choose `File - Save` or `File - Save As...`. To prevent accidental saving of the changed text under the same name, select `Modes - Prevent file overwriting`. Managing actions in the text field is carried out using the menu: `Edit - Undo action` and `Edits - Redo action`. `Edit - Change font` changes the font of the workspace to any of the monospace fonts available in the tkinter.
+  
+  ![GitHub](https://github.com/TVApro/UltraChtec/blob/main/pic/Main_window.jpg?raw=true)
   
   If the `Edit - Copy all text` option is selected, all text in the field is copied to the clipboard (you do not need to select it for full copying). You can reduce and enlarge the text using the corresponding options `Edit - Increase font` and `Edit - Decrease font`. All text can be removed using `Edit - Clear text field`. With any manipulations in the program, except for saving, the original file with the genome is not changed. By default, the program opens the file every time, determines its format, looks for matches in the headers. The program itself determines the file format, not focusing on the extension specified in the file name. This does not prevent the researcher from viewing and editing third-party files, but blocks the possibility of analysis.
   
