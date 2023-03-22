@@ -362,7 +362,7 @@ class FinderField():
                                         if u == 2:
                                             fin = int(h)
                                             delta_l = abs(fin-st)
-                                            na_sequence = scaffold_sequence[st:st+delta_l]
+                                            na_sequence = scaffold_sequence[st-1:st+delta_l]
                                             break
                                     if 'complement' in gg_edges:
                                         na_sequence = fa.complement_sequence(na_sequence)
