@@ -335,7 +335,7 @@ class FinderField():
                         if '/product="' in j:
                             g_name = re.search(gene_name, j)
                             key_presence = False
-                            gg_name = re.sub(r' +', ' ', (g_name.group()).replace('\n', ''))
+                            gg_name = re.sub(r' +', ' ', (g_name.group()).replace('\n', '')).replace('_', '')
                             # проверка наличия выражения с keyword в имени гена
                             for key_expression in key_list:
                                 if key_expression in gg_name:
