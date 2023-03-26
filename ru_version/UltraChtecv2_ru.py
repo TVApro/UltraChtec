@@ -335,7 +335,7 @@ class FinderField():
                         if '/product="' in j:
                             g_name = re.search(gene_name, j)
                             key_presence = False
-                            gg_name = re.sub(r' +', ' ', (g_name.group()).replace('\n', '')).replace(' ', '_')
+                            gg_name = re.sub(r' +', ' ', (g_name.group()).replace('\n', '')).replace('_', '')
                             # проверка наличия выражения с keyword в имени гена
                             for key_expression in key_list:
                                 if key_expression in gg_name:
@@ -390,7 +390,7 @@ class FinderField():
                                 if seq_check == 'fna':
                                     if na_sequence:
                                         writing_number += 1
-                                        gg_name1 = gg_name.replace('/product=\"', '>').replace('"', '')
+                                        gg_name1 = str(gg_name.replace('/product=\"', '>')+'_№'+str(writing_number)).replace('"', '').replace(' ', '_')
                                         if gg_name1 == '>' or gg_name1 == '> ':
                                             gg_name1 = '>Unknown_'+str(writing_number)
                                         na_sequence1 = fa.beautifull_sequence(na_sequence)
@@ -398,7 +398,7 @@ class FinderField():
                                 if seq_check == 'faa':
                                     if gg_translation:
                                         writing_number += 1
-                                        gg_name1 = gg_name.replace('/product=\"', '>').replace('"', '')
+                                        gg_name1 = str(gg_name.replace('/product=\"', '>')+'_№'+str(writing_number)).replace('"', '').replace(' ', '_')
                                         gg_translation1 = gg_translation.replace('/translation=\"', '').replace('"', '')
                                         gg_translation = fa.beautifull_sequence(gg_translation1)
                                         if gg_name1 == '>' or gg_name1 == '> ':
